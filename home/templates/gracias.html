@@ -6,6 +6,22 @@
 </head>
 <body>
   <h2>¡Gracias por enviar tu información!</h2>
-  <a href="/">Volver</a>
+  
+  <p><strong>Seguro:</strong> {{ nombre_seguro }}</p>
+  <p><strong>Descripción:</strong> {{ descripcion }}</p>
+
+  <h3>Palabras clave detectadas:</h3>
+  <ul>
+    {% if resultados %}
+      {% for palabra, categoria in resultados %}
+        <li><strong>{{ palabra }}</strong> ({{ categoria }})</li>
+      {% endfor %}
+    {% else %}
+      <li>No se detectaron términos médicos relevantes.</li>
+    {% endif %}
+  </ul>
+
+  <br>
+  <a href="/">Volver al formulario</a>
 </body>
 </html>
